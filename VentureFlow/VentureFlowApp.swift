@@ -16,7 +16,7 @@ struct VentureFlowApp: App {
 
     var body: some Scene {
         WindowGroup {
-            LoadingView()
+            ContentView()
                 .preferredColorScheme(.dark)
         }
     }
