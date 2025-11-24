@@ -46,7 +46,7 @@ struct LoadingView: View {
                         .animation(.linear(duration: 2).repeatForever(autoreverses: false), value: isAnimating)
                         .shadow(color: AppColors.primary.opacity(0.4), radius: 20, x: 0, y: 10)
 
-                    Text("VentureFlow")
+                    Text("WiFlow")
                         .font(AppTypography.display)
                         .foregroundColor(AppColors.textPrimary)
 

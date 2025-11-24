@@ -413,7 +413,7 @@ struct SettingsView: View {
                 Divider()
                     .background(AppColors.backgroundSecondary)
 
-                Text("VentureFlow helps you manage personal projects, track tasks, and meet deadlines efficiently.")
+                Text("WiFlow helps you manage personal projects, track tasks, and meet deadlines efficiently.")
                     .font(.system(size: 13, weight: .medium))
                     .foregroundColor(AppColors.textSecondary)
                     .multilineTextAlignment(.leading)

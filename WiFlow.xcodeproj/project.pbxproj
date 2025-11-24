@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		3A7C168D2EB8BB9200E580AC /* VentureFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VentureFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A7C168D2EB8BB9200E580AC /* WiFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WiFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -40,7 +40,7 @@
 		3A7C168E2EB8BB9200E580AC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3A7C168D2EB8BB9200E580AC /* VentureFlow.app */,
+				3A7C168D2EB8BB9200E580AC /* WiFlow.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,9 +48,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3A7C168C2EB8BB9200E580AC /* VentureFlow */ = {
+		3A7C168C2EB8BB9200E580AC /* WiFlow */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3A7C16A02EB8BB9200E580AC /* Build configuration list for PBXNativeTarget "VentureFlow" */;
+			buildConfigurationList = 3A7C16A02EB8BB9200E580AC /* Build configuration list for PBXNativeTarget "WiFlow" */;
 			buildPhases = (
 				3A7C16892EB8BB9200E580AC /* Sources */,
 				3A7C168A2EB8BB9200E580AC /* Frameworks */,
@@ -63,11 +63,11 @@
 			fileSystemSynchronizedGroups = (
 				3A7C168F2EB8BB9200E580AC /* VentureFlow */,
 			);
-			name = VentureFlow;
+			name = WiFlow;
 			packageProductDependencies = (
 			);
 			productName = VentureFlow;
-			productReference = 3A7C168D2EB8BB9200E580AC /* VentureFlow.app */;
+			productReference = 3A7C168D2EB8BB9200E580AC /* WiFlow.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -85,7 +85,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3A7C16882EB8BB9200E580AC /* Build configuration list for PBXProject "VentureFlow" */;
+			buildConfigurationList = 3A7C16882EB8BB9200E580AC /* Build configuration list for PBXProject "WiFlow" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -99,7 +99,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3A7C168C2EB8BB9200E580AC /* VentureFlow */,
+				3A7C168C2EB8BB9200E580AC /* WiFlow */,
 			);
 		};
 /* End PBXProject section */
@@ -261,8 +261,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -299,8 +299,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -323,7 +323,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3A7C16882EB8BB9200E580AC /* Build configuration list for PBXProject "VentureFlow" */ = {
+		3A7C16882EB8BB9200E580AC /* Build configuration list for PBXProject "WiFlow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3A7C169E2EB8BB9200E580AC /* Debug */,
@@ -332,7 +332,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3A7C16A02EB8BB9200E580AC /* Build configuration list for PBXNativeTarget "VentureFlow" */ = {
+		3A7C16A02EB8BB9200E580AC /* Build configuration list for PBXNativeTarget "WiFlow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3A7C16A12EB8BB9200E580AC /* Debug */,
