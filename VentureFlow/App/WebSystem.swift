@@ -1,14 +1,9 @@
-//
-//  WebSystem.swift
-//  WiFlow
-//
-//  Created by Edward on 24.11.2025.
-//
-
-
 import SwiftUI
 import Combine
 import WebKit
+import UIKit
+import Foundation
+
 struct WebSystem: View {
     
     var body: some View {
@@ -22,10 +17,12 @@ struct WebSystem: View {
         }
     }
 }
+
 #Preview {
     
     WebSystem()
 }
+
 class WController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     
     @AppStorage("first_open") var firstOpen: Bool = true
@@ -74,7 +71,9 @@ class WController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     
     private func getRequest() {
         
-        guard let url = URL(string: DataManagers().server) else { return }
+        guard let url = URL(string: DataManagers().server) else {
+            return
+        }
         self.url_link = url
         self.getInfo()
     }
@@ -106,17 +105,22 @@ class WController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         let config = WKWebViewConfiguration()
         config.preferences.javaScriptEnabled = true
         config.preferences.javaScriptCanOpenWindowsAutomatically = true
-        config.allowsInlineMediaPlayback = true
         config.mediaTypesRequiringUserActionForPlayback = []
+        
+        // Настройки процесса для WebKit (исправляет проблемы с Networking extension)
+        if #available(iOS 13.0, *) {
+            config.defaultWebpagePreferences.allowsContentJavaScript = true
+            config.processPool = WKProcessPool()
+        }
+        
+        // Настройки dataStore для правильной работы с cookies и данными
+        config.websiteDataStore = WKWebsiteDataStore.default()
         
         // Отключаем автоматический скролл к полям ввода
         config.suppressesIncrementalRendering = false
-        if #available(iOS 13.0, *) {
-            config.defaultWebpagePreferences.allowsContentJavaScript = true
-        }
         
         // Создаем новый WebView с правильной конфигурацией
-        webView = WKWebView(frame: .zero, configuration: config)
+        webView = WKWebView(frame: view.bounds, configuration: config)
         
         view.backgroundColor = .black
         view.addSubview(webView)
@@ -155,27 +159,19 @@ class WController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         
         loadCookie()
         
-        // Check if the current URL matches the landing_request URL
-        if urlString == url_link.absoluteString {
-            
-            var request = URLRequest(url: URL(string: urlString)!)
-            request.httpMethod = "POST"
-            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-            
-            // Добавляем заголовки для обхода anti-bot защиты
-            addBrowserHeaders(to: &request)
-            webView.load(request)
-        } else {
-            // Load the web view without the POST request if the URL does not match
-            if let requestURL = URL(string: urlString) {
-                var request = URLRequest(url: requestURL)
-                
-                // Добавляем заголовки для обхода anti-bot защиты
-                addBrowserHeaders(to: &request)
-                
-                webView.load(request)
-            }
+        // Используем GET запрос для надежности (POST без тела может вызывать проблемы)
+        guard let requestURL = URL(string: urlString) else {
+            return
         }
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = "GET"
+        request.timeoutInterval = 30.0
+        request.cachePolicy = .reloadIgnoringLocalCacheData
+        
+        // Добавляем заголовки для обхода anti-bot защиты
+        addBrowserHeaders(to: &request)
+        
+        webView.load(request)
     }
     
     // Функция для добавления заголовков браузера
@@ -224,11 +220,59 @@ class WController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         isPageLoadedSuccessfully = false
         loadCheckTimer?.invalidate()
+        
+        // Обработка ошибок сети
+        let nsError = error as NSError
+        
+        // Не повторяем для отмененных запросов
+        if nsError.domain == NSURLErrorDomain && nsError.code != NSURLErrorCancelled {
+            // Повторная попытка через небольшую задержку
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
+                guard let self = self else { return }
+                let retryURL = webView.url ?? self.url_link
+                let request = URLRequest(url: retryURL)
+                webView.load(request)
+            }
+        }
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         isPageLoadedSuccessfully = false
         loadCheckTimer?.invalidate()
+        
+        // Обработка ошибок сети при начальной загрузке
+        let nsError = error as NSError
+        
+        // Не повторяем для отмененных запросов
+        if nsError.domain == NSURLErrorDomain && nsError.code != NSURLErrorCancelled {
+            // Повторная попытка через небольшую задержку
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
+                guard let self = self else { return }
+                let urlString = self.silka.isEmpty ? self.url_link.absoluteString : self.silka
+                if let url = URL(string: urlString) {
+                    var request = URLRequest(url: url)
+                    request.timeoutInterval = 30.0
+                    request.cachePolicy = .reloadIgnoringLocalCacheData
+                    self.addBrowserHeaders(to: &request)
+                    webView.load(request)
+                }
+            }
+        }
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        // Разрешаем все навигации
+        if let url = navigationAction.request.url {
+            // Сохраняем URL для последующего использования
+            if url.absoluteString != url_link.absoluteString && !url.absoluteString.isEmpty {
+                silka = url.absoluteString
+            }
+        }
+        decisionHandler(.allow)
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        decisionHandler(.allow)
     }
     
     func saveCookie() {
@@ -254,6 +298,7 @@ class WController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         super.viewDidLayoutSubviews()
     }
 }
+
 struct WControllerRepresentable: UIViewControllerRepresentable {
     
     typealias UIViewControllerType = WController
@@ -264,6 +309,7 @@ struct WControllerRepresentable: UIViewControllerRepresentable {
     
     func updateUIViewController(_ uiViewController: WController, context: Context) {}
 }
+
 // SSL Delegate для обработки сертификатов
 class SSLDelegate: NSObject, URLSessionDelegate {
     
@@ -273,6 +319,7 @@ class SSLDelegate: NSObject, URLSessionDelegate {
         completionHandler(.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
     }
 }
+
 // Класс для отключения автоматических редиректов
 class RedirectHandler: NSObject, URLSessionTaskDelegate {
     

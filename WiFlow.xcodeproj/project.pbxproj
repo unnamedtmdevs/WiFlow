@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		2BE26BC32ED491A100A7BA78 /* WiFlow-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WiFlow-Info.plist"; sourceTree = "<group>"; };
 		3A7C168D2EB8BB9200E580AC /* WiFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WiFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -32,6 +33,7 @@
 		3A7C16842EB8BB9200E580AC = {
 			isa = PBXGroup;
 			children = (
+				2BE26BC32ED491A100A7BA78 /* WiFlow-Info.plist */,
 				3A7C168F2EB8BB9200E580AC /* VentureFlow */,
 				3A7C168E2EB8BB9200E580AC /* Products */,
 			);
@@ -254,6 +256,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"VentureFlow/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WiFlow-Info.plist";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "VentureFlow needs access to your camera to add photos to resources.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "VentureFlow needs access to your photo library to add images to resources.";
@@ -292,6 +295,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"VentureFlow/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WiFlow-Info.plist";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "VentureFlow needs access to your camera to add photos to resources.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "VentureFlow needs access to your photo library to add images to resources.";
