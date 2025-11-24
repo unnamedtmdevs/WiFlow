@@ -2,8 +2,6 @@
 //  ContentView.swift
 //  VentureFlow
 //
-//  Created by Дионисий Коневиченко on 03.11.2025.
-//
 
 import SwiftUI
 import CoreData
