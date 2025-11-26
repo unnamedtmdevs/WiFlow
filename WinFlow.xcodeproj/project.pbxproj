@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		2BE26BC32ED491A100A7BA78 /* WiFlow-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WiFlow-Info.plist"; sourceTree = "<group>"; };
-		3A7C168D2EB8BB9200E580AC /* WiFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WiFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A7C168D2EB8BB9200E580AC /* WinFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WinFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -33,7 +32,6 @@
 		3A7C16842EB8BB9200E580AC = {
 			isa = PBXGroup;
 			children = (
-				2BE26BC32ED491A100A7BA78 /* WiFlow-Info.plist */,
 				3A7C168F2EB8BB9200E580AC /* VentureFlow */,
 				3A7C168E2EB8BB9200E580AC /* Products */,
 			);
@@ -42,7 +40,7 @@
 		3A7C168E2EB8BB9200E580AC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3A7C168D2EB8BB9200E580AC /* WiFlow.app */,
+				3A7C168D2EB8BB9200E580AC /* WinFlow.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -50,9 +48,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3A7C168C2EB8BB9200E580AC /* WiFlow */ = {
+		3A7C168C2EB8BB9200E580AC /* WinFlow */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3A7C16A02EB8BB9200E580AC /* Build configuration list for PBXNativeTarget "WiFlow" */;
+			buildConfigurationList = 3A7C16A02EB8BB9200E580AC /* Build configuration list for PBXNativeTarget "WinFlow" */;
 			buildPhases = (
 				3A7C16892EB8BB9200E580AC /* Sources */,
 				3A7C168A2EB8BB9200E580AC /* Frameworks */,
@@ -65,11 +63,11 @@
 			fileSystemSynchronizedGroups = (
 				3A7C168F2EB8BB9200E580AC /* VentureFlow */,
 			);
-			name = WiFlow;
+			name = WinFlow;
 			packageProductDependencies = (
 			);
 			productName = VentureFlow;
-			productReference = 3A7C168D2EB8BB9200E580AC /* WiFlow.app */;
+			productReference = 3A7C168D2EB8BB9200E580AC /* WinFlow.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -87,7 +85,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3A7C16882EB8BB9200E580AC /* Build configuration list for PBXProject "WiFlow" */;
+			buildConfigurationList = 3A7C16882EB8BB9200E580AC /* Build configuration list for PBXProject "WinFlow" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -101,7 +99,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3A7C168C2EB8BB9200E580AC /* WiFlow */,
+				3A7C168C2EB8BB9200E580AC /* WinFlow */,
 			);
 		};
 /* End PBXProject section */
@@ -252,7 +250,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"VentureFlow/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -273,7 +271,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3;
+				MARKETING_VERSION = 4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thi.w1fl0wv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -293,7 +291,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"VentureFlow/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -314,7 +312,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3;
+				MARKETING_VERSION = 4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thi.w1fl0wv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -331,7 +329,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3A7C16882EB8BB9200E580AC /* Build configuration list for PBXProject "WiFlow" */ = {
+		3A7C16882EB8BB9200E580AC /* Build configuration list for PBXProject "WinFlow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3A7C169E2EB8BB9200E580AC /* Debug */,
@@ -340,7 +338,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3A7C16A02EB8BB9200E580AC /* Build configuration list for PBXNativeTarget "WiFlow" */ = {
+		3A7C16A02EB8BB9200E580AC /* Build configuration list for PBXNativeTarget "WinFlow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3A7C16A12EB8BB9200E580AC /* Debug */,
